@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telescope — Real recommendations by real people</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ===================== HERO ===================== -->
+  <!-- Tall scroll container — hero is sticky inside, zooms out as you scroll -->
+  <div class="hero-scroll" id="heroScroll">
+  <section class="hero" id="hero">
+
+    <!-- Zooming inner layer -->
+    <div class="hero-zoom" id="heroZoom">
+
+    <!-- Scattered photos layer -->
+    <div class="photos" id="photos" aria-hidden="true">
+
+      <!-- Top area -->
+      <div class="photo photo--a" data-vx="-0.3" data-vy="-0.1">
+        <img src="https://picsum.photos/seed/hat1/282/200" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--b" data-vx="0.2" data-vy="-0.2">
+        <img src="https://picsum.photos/seed/man2/220/195" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--c" data-vx="0.4" data-vy="-0.1">
+        <img src="https://picsum.photos/seed/food1/120/140" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--d" data-vx="0.5" data-vy="-0.3">
+        <img src="https://picsum.photos/seed/shoe9/130/90" alt="" loading="eager" />
+      </div>
+
+      <!-- Middle area -->
+      <div class="photo photo--e" data-vx="-0.5" data-vy="0.1">
+        <img src="https://picsum.photos/seed/studio3/100/210" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--f" data-vx="-0.4" data-vy="0.3">
+        <img src="https://picsum.photos/seed/fashion4/90/215" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--g" data-vx="0.5" data-vy="0.2">
+        <img src="https://picsum.photos/seed/run5/260/225" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--h" data-vx="0.6" data-vy="0.4">
+        <img src="https://picsum.photos/seed/art6/68/115" alt="" loading="eager" />
+      </div>
+
+      <!-- Bottom area -->
+      <div class="photo photo--i" data-vx="-0.3" data-vy="0.5">
+        <img src="https://picsum.photos/seed/cycle7/165/148" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--j" data-vx="-0.1" data-vy="0.4">
+        <img src="https://picsum.photos/seed/brunch8/102/82" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--k" data-vx="0.1" data-vy="0.6">
+        <img src="https://picsum.photos/seed/pastry9/118/118" alt="" loading="eager" />
+      </div>
+      <div class="photo photo--l" data-vx="0.4" data-vy="0.5">
+        <img src="https://picsum.photos/seed/nature10/238/165" alt="" loading="eager" />
+      </div>
+    </div>
+
+    <!-- Center headline -->
+    <div class="hero__center" id="heroCenter">
+      <h1 class="hero__headline">
+        <span class="hero__line" id="heroLine1">Real recommendations</span>
+        <span class="hero__line" id="heroLine2">by real people</span>
+      </h1>
+    </div>
+
+    </div><!-- /hero-zoom -->
+  </section>
+  </div><!-- /hero-scroll -->
+
+  <!-- ===================== BOTTOM NAV ===================== -->
+  <nav class="bottom-nav" id="bottomNav">
+    <div class="bottom-nav__left">
+      <span class="bottom-nav__beta">Currently in private beta</span>
+    </div>
+    <div class="bottom-nav__center">
+      <a href="#" class="bottom-nav__signin">Sign in</a>
+      <a href="/" class="bottom-nav__logo">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="10" cy="10" r="3.5" fill="currentColor"/>
+        </svg>
+        <span>Telescope</span>
+      </a>
+      <a href="#" class="bottom-nav__join">Join waitlist</a>
+    </div>
+    <div class="bottom-nav__right">
+      <span class="bottom-nav__scroll">Scroll</span>
+      <svg class="bottom-nav__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </nav>
+
+  <!-- ===================== SCROLL SECTIONS ===================== -->
+  <!-- Section 2 — Discover -->
+  <section class="scroll-section scroll-section--light" id="section2">
+    <div class="scroll-section__inner">
+      <p class="scroll-tag">— What people love</p>
+      <h2 class="scroll-h2">Discover curated lists<br>from real tastemakers</h2>
+      <p class="scroll-body">People who genuinely care about what they recommend — no ads, no algorithms, no noise.</p>
+      <a href="#" class="pill-btn pill-btn--dark">Start exploring →</a>
+    </div>
+    <div class="scroll-section__photos-mini" aria-hidden="true">
+      <div class="mini-photo" style="--s:180px;--r:-4deg;background:#d4e8a0">
+        <img src="https://picsum.photos/seed/list1/180/220" alt="" />
+        <div class="mini-photo__label">Books</div>
+      </div>
+      <div class="mini-photo" style="--s:200px;--r:3deg;background:#b8d4f4;margin-top:40px">
+        <img src="https://picsum.photos/seed/list2/200/240" alt="" />
+        <div class="mini-photo__label">Music</div>
+      </div>
+      <div class="mini-photo" style="--s:170px;--r:-2deg;background:#f4b8d0;margin-top:-20px">
+        <img src="https://picsum.photos/seed/list3/170/200" alt="" />
+        <div class="mini-photo__label">Places</div>
+      </div>
+      <div class="mini-photo" style="--s:190px;--r:5deg;background:#f0d898;margin-top:20px">
+        <img src="https://picsum.photos/seed/list4/190/230" alt="" />
+        <div class="mini-photo__label">Film</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 — No algorithms -->
+  <section class="scroll-section scroll-section--dark" id="section3">
+    <div class="scroll-section__inner scroll-section__inner--center">
+      <p class="scroll-tag scroll-tag--light">— Our philosophy</p>
+      <h2 class="scroll-h2 scroll-h2--light">
+        No ads.<br>
+        No algorithms.<br>
+        <span class="text-accent">No overwhelm.</span>
+      </h2>
+      <p class="scroll-body scroll-body--light">
+        We built Telescope for everyone who still believes<br>
+        the internet should feel like discovery.
+      </p>
+    </div>
+  </section>
+
+  <!-- Section 4 — For curators -->
+  <section class="scroll-section scroll-section--accent" id="section4">
+    <div class="scroll-section__inner">
+      <p class="scroll-tag">— For tastemakers</p>
+      <h2 class="scroll-h2">Share what you love.<br>Get paid for your taste.</h2>
+      <div class="how-grid">
+        <div class="how-item">
+          <div class="how-num">01</div>
+          <h3>Create a list</h3>
+          <p>Curate around any topic — books, films, places, music, food, products.</p>
+        </div>
+        <div class="how-item">
+          <div class="how-num">02</div>
+          <h3>Share honestly</h3>
+          <p>No sponsored posts. Every recommendation reflects your genuine experience.</p>
+        </div>
+        <div class="how-item">
+          <div class="how-num">03</div>
+          <h3>Earn from taste</h3>
+          <p>When people save and shop your lists, you earn. Transparent — no guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5 — CTA -->
+  <section class="scroll-section scroll-section--dark" id="section5">
+    <div class="scroll-section__inner scroll-section__inner--center">
+      <p class="scroll-tag scroll-tag--light">— Join us</p>
+      <h2 class="scroll-h2 scroll-h2--light scroll-h2--huge">
+        Start looking<br>closer.
+      </h2>
+      <div class="cta-btns">
+        <a href="#" class="pill-btn pill-btn--accent">Join the waitlist</a>
+        <a href="#" class="pill-btn pill-btn--ghost">Learn more</a>
+      </div>
+    </div>
+    <div class="cta-deco" aria-hidden="true">◎</div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__logo">
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="10" cy="10" r="3.5" fill="currentColor"/>
+        </svg>
+        <span>Telescope</span>
+      </div>
+      <div class="footer__links">
+        <a href="#">Discover</a>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+      <span class="footer__copy">© 2025 Telescope</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
