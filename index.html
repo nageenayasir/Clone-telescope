@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Telescope — Real recommendations from real people</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Mouse Trail -->
+  <div class="mouse-trail" id="mouseTrail"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">
+      <span class="nav__logo-icon">◎</span>
+      <span class="nav__logo-text">Telescope</span>
+    </div>
+    <ul class="nav__links">
+      <li><a href="#discover">Discover</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#creators">For creators</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#" class="btn btn--outline">Sign in</a>
+      <a href="#" class="btn btn--accent">Get started</a>
+    </div>
+    <button class="nav__burger" id="navBurger" aria-label="Menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#discover">Discover</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#creators">For creators</a></li>
+      <li><a href="#">Sign in</a></li>
+      <li><a href="#" class="btn btn--accent">Get started</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero__bg-text" aria-hidden="true">TELESCOPE</div>
+
+    <div class="hero__content">
+      <div class="hero__tag parallax-text" data-speed="0.3">
+        <span class="dot"></span> The internet, curated
+      </div>
+
+      <h1 class="hero__headline parallax-text" data-speed="0.5">
+        Real taste.<br />
+        <em>Real people.</em><br />
+        Real good.
+      </h1>
+
+      <p class="hero__sub parallax-text" data-speed="0.4">
+        No ads. No algorithms. No overwhelm.<br />
+        Just honest recommendations from people who actually care.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#" class="btn btn--large btn--dark">Start exploring →</a>
+        <a href="#how" class="hero__learn">How it works ↓</a>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      <div class="hero__circle-wrapper">
+        <div class="hero__circle" id="heroCircle">
+          <div class="circle-card circle-card--1">
+            <div class="circle-card__img" style="background-color: #d4e8c2;"></div>
+            <span>Books</span>
+          </div>
+          <div class="circle-card circle-card--2">
+            <div class="circle-card__img" style="background-color: #c2d8e8;"></div>
+            <span>Music</span>
+          </div>
+          <div class="circle-card circle-card--3">
+            <div class="circle-card__img" style="background-color: #e8c2d4;"></div>
+            <span>Places</span>
+          </div>
+          <div class="circle-card circle-card--4">
+            <div class="circle-card__img" style="background-color: #e8e0c2;"></div>
+            <span>Film</span>
+          </div>
+          <div class="circle-card circle-card--5">
+            <div class="circle-card__img" style="background-color: #c2e8e0;"></div>
+            <span>Food</span>
+          </div>
+        </div>
+        <div class="hero__orbit-ring"></div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Marquee Band -->
+  <div class="marquee-band">
+    <div class="marquee-track">
+      <span>Books you'll actually finish</span>
+      <span class="sep">◎</span>
+      <span>Places worth the trip</span>
+      <span class="sep">◎</span>
+      <span>Music for every mood</span>
+      <span class="sep">◎</span>
+      <span>Films that stay with you</span>
+      <span class="sep">◎</span>
+      <span>Food worth the queue</span>
+      <span class="sep">◎</span>
+      <span>Products that earn their shelf space</span>
+      <span class="sep">◎</span>
+      <span>Books you'll actually finish</span>
+      <span class="sep">◎</span>
+      <span>Places worth the trip</span>
+      <span class="sep">◎</span>
+      <span>Music for every mood</span>
+      <span class="sep">◎</span>
+      <span>Films that stay with you</span>
+      <span class="sep">◎</span>
+      <span>Food worth the queue</span>
+      <span class="sep">◎</span>
+      <span>Products that earn their shelf space</span>
+      <span class="sep">◎</span>
+    </div>
+  </div>
+
+  <!-- Discovery Slider -->
+  <section class="discover" id="discover">
+    <div class="section-header">
+      <span class="section-tag">Featured lists</span>
+      <h2 class="section-title reveal-text">What people<br /><em>are loving</em></h2>
+    </div>
+
+    <div class="slider-wrapper">
+      <div class="slider" id="slider">
+        <div class="slide active">
+          <div class="slide__visual" style="background: linear-gradient(135deg, #E3F794 0%, #c8e060 100%);">
+            <div class="slide__shape"></div>
+            <div class="slide__label">Books</div>
+          </div>
+          <div class="slide__info">
+            <h3>10 Books That Changed My Year</h3>
+            <p>Curated by <strong>@elena.reads</strong></p>
+            <span class="slide__count">10 items · 2.4k saves</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide__visual" style="background: linear-gradient(135deg, #b8d4f0 0%, #7aa8d8 100%);">
+            <div class="slide__shape"></div>
+            <div class="slide__label">Music</div>
+          </div>
+          <div class="slide__info">
+            <h3>Albums for Long Drives</h3>
+            <p>Curated by <strong>@jake.listens</strong></p>
+            <span class="slide__count">12 items · 3.1k saves</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide__visual" style="background: linear-gradient(135deg, #f4c2d8 0%, #d88aaa 100%);">
+            <div class="slide__shape"></div>
+            <div class="slide__label">Places</div>
+          </div>
+          <div class="slide__info">
+            <h3>Hidden Coffee Spots in Tokyo</h3>
+            <p>Curated by <strong>@nomi.wanders</strong></p>
+            <span class="slide__count">8 items · 5.7k saves</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide__visual" style="background: linear-gradient(135deg, #e8d4a0 0%, #c8a84a 100%);">
+            <div class="slide__shape"></div>
+            <div class="slide__label">Film</div>
+          </div>
+          <div class="slide__info">
+            <h3>Films That Deserve a Second Watch</h3>
+            <p>Curated by <strong>@cinephile_kai</strong></p>
+            <span class="slide__count">15 items · 4.2k saves</span>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="slide__visual" style="background: linear-gradient(135deg, #b8e8d4 0%, #6ac8a4 100%);">
+            <div class="slide__shape"></div>
+            <div class="slide__label">Food</div>
+          </div>
+          <div class="slide__info">
+            <h3>Recipes That Actually Impress</h3>
+            <p>Curated by <strong>@home.kitchen</strong></p>
+            <span class="slide__count">9 items · 6.8k saves</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn" id="prevBtn" aria-label="Previous">←</button>
+        <div class="slider-dots" id="sliderDots"></div>
+        <button class="slider-btn" id="nextBtn" aria-label="Next">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how">
+    <div class="how-it-works__inner">
+      <div class="section-header section-header--center">
+        <span class="section-tag">Simple by design</span>
+        <h2 class="section-title reveal-text">Share what you love.<br /><em>Get paid for your taste.</em></h2>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal-item" data-delay="0">
+          <div class="step__number">01</div>
+          <div class="step__icon">◎</div>
+          <h3>Create your list</h3>
+          <p>Curate recommendations around any topic — books, films, places, products, music. Your list, your voice.</p>
+        </div>
+        <div class="step reveal-item" data-delay="100">
+          <div class="step__number">02</div>
+          <div class="step__icon">⟡</div>
+          <h3>Share it honestly</h3>
+          <p>No sponsored posts. No affiliate tricks. Every recommendation you make reflects your genuine experience.</p>
+        </div>
+        <div class="step reveal-item" data-delay="200">
+          <div class="step__number">03</div>
+          <div class="step__icon">✦</div>
+          <h3>Earn from your taste</h3>
+          <p>When people save and shop your lists, you earn. Transparent revenue sharing — no guesswork.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy / Statement -->
+  <section class="statement">
+    <div class="statement__inner">
+      <div class="statement__text reveal-text">
+        <p>We believe the internet should still<br /><em>feel like discovery.</em></p>
+      </div>
+      <div class="statement__aside">
+        <div class="statement__pill">No algorithms</div>
+        <div class="statement__pill">No ads</div>
+        <div class="statement__pill">Just humans</div>
+      </div>
+    </div>
+    <div class="statement__bg-shape"></div>
+  </section>
+
+  <!-- Creators Section -->
+  <section class="creators" id="creators">
+    <div class="section-header">
+      <span class="section-tag">For tastemakers</span>
+      <h2 class="section-title reveal-text">Built for people<br /><em>with genuine taste</em></h2>
+    </div>
+
+    <div class="creators__grid">
+      <div class="creator-card reveal-item" data-delay="0">
+        <div class="creator-card__avatar" style="background: linear-gradient(135deg, #E3F794, #b0c860);"></div>
+        <div class="creator-card__body">
+          <h4>Elena Marchetti</h4>
+          <span class="creator-card__handle">@elena.reads</span>
+          <p>"Telescope lets me share books I genuinely love — without worrying about whether it'll tank my reach."</p>
+          <div class="creator-card__stats">
+            <span>2.1k followers</span>
+            <span>·</span>
+            <span>34 lists</span>
+          </div>
+        </div>
+      </div>
+      <div class="creator-card reveal-item" data-delay="100">
+        <div class="creator-card__avatar" style="background: linear-gradient(135deg, #c2d8f4, #7aa8d8);"></div>
+        <div class="creator-card__body">
+          <h4>Jake Osei</h4>
+          <span class="creator-card__handle">@jake.listens</span>
+          <p>"I've tried every platform. This is the only one where my audience actually trusts the recommendations."</p>
+          <div class="creator-card__stats">
+            <span>4.3k followers</span>
+            <span>·</span>
+            <span>21 lists</span>
+          </div>
+        </div>
+      </div>
+      <div class="creator-card reveal-item" data-delay="200">
+        <div class="creator-card__avatar" style="background: linear-gradient(135deg, #f4c2d4, #d88aaa);"></div>
+        <div class="creator-card__body">
+          <h4>Nomi Tanaka</h4>
+          <span class="creator-card__handle">@nomi.wanders</span>
+          <p>"My travel lists earn more here in a month than ad deals ever did. And my readers thank me for it."</p>
+          <div class="creator-card__stats">
+            <span>8.7k followers</span>
+            <span>·</span>
+            <span>47 lists</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-section__inner">
+      <div class="cta-section__badge">◎ Join the community</div>
+      <h2 class="cta-section__title reveal-text">
+        Start looking closer.<br /><em>Start with Telescope.</em>
+      </h2>
+      <p class="cta-section__sub">Thousands of curators. Millions of recommendations. Zero noise.</p>
+      <div class="cta-section__actions">
+        <a href="#" class="btn btn--large btn--accent">Create your first list →</a>
+        <a href="#" class="btn btn--large btn--ghost">Explore for free</a>
+      </div>
+    </div>
+    <div class="cta-section__deco" aria-hidden="true">◎</div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span class="nav__logo-icon">◎</span>
+          <span>Telescope</span>
+        </div>
+        <p>Real recommendations.<br />Real people. No noise.</p>
+      </div>
+      <div class="footer__links">
+        <div class="footer__col">
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="#">Discover</a></li>
+            <li><a href="#">Categories</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">New lists</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5>Creators</h5>
+          <ul>
+            <li><a href="#">Start a list</a></li>
+            <li><a href="#">How earnings work</a></li>
+            <li><a href="#">Creator stories</a></li>
+            <li><a href="#">Guidelines</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2025 Telescope. All rights reserved.</span>
+      <div class="footer__legal">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
