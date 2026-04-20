@@ -16,7 +16,12 @@
   <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- ===================== HERO ===================== -->
+  <!-- Tall scroll container — hero is sticky inside, zooms out as you scroll -->
+  <div class="hero-scroll" id="heroScroll">
   <section class="hero" id="hero">
+
+    <!-- Zooming inner layer -->
+    <div class="hero-zoom" id="heroZoom">
 
     <!-- Scattered photos layer -->
     <div class="photos" id="photos" aria-hidden="true">
@@ -65,14 +70,16 @@
     </div>
 
     <!-- Center headline -->
-    <div class="hero__center">
+    <div class="hero__center" id="heroCenter">
       <h1 class="hero__headline">
         <span class="hero__line" id="heroLine1">Real recommendations</span>
         <span class="hero__line" id="heroLine2">by real people</span>
       </h1>
     </div>
 
+    </div><!-- /hero-zoom -->
   </section>
+  </div><!-- /hero-scroll -->
 
   <!-- ===================== BOTTOM NAV ===================== -->
   <nav class="bottom-nav" id="bottomNav">

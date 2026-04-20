@@ -49,10 +49,19 @@ body.on-link .cursor        { transform: translate(-50%,-50%) scale(0); }
 body.on-link .cursor-ring   { width: 52px; height: 52px; border-color: #1a1915; background: rgba(227,247,148,.12); }
 
 /* ============================================================
-   HERO
+   HERO — ZOOM SCROLL INTRO
    ============================================================ */
-.hero {
+
+/* Tall container that drives the scroll-based zoom */
+.hero-scroll {
   position: relative;
+  height: 500vh;      /* scroll distance = 4× viewport */
+}
+
+/* Sticky viewport — stays fixed while you scroll through hero-scroll */
+.hero {
+  position: sticky;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background: #f4f3f0;
@@ -62,13 +71,27 @@ body.on-link .cursor-ring   { width: 52px; height: 52px; border-color: #1a1915; 
   justify-content: center;
 }
 
+/* The layer that gets scaled — starts at 6×, scrolls down to 1× */
+.hero-zoom {
+  position: absolute;
+  inset: 0;
+  transform-origin: center center;
+  transform: scale(6);   /* JS overrides this each frame */
+  will-change: transform;
+}
+
 /* ---- Center text ---- */
 .hero__center {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
-  text-align: center;
   pointer-events: none;
   user-select: none;
+  opacity: 0;           /* fades in near end of zoom */
+  transition: opacity .4s ease;
 }
 .hero__headline {
   font-family: 'Syne', system-ui, sans-serif;
@@ -77,6 +100,7 @@ body.on-link .cursor-ring   { width: 52px; height: 52px; border-color: #1a1915; 
   line-height: 1.18;
   letter-spacing: -.025em;
   color: #1a1915;
+  text-align: center;
 }
 .hero__line { display: block; }
 

@@ -1,5 +1,5 @@
 /* ============================================================
-   TELESCOPE.FYI CLONE — script.js
+   TELESCOPE.FYI — ZOOM SCROLL INTRO
    ============================================================ */
 
 /* ---- CURSOR ---- */
@@ -26,28 +26,78 @@ document.querySelectorAll('a, button, .how-item').forEach(el => {
   el.addEventListener('mouseleave', () => document.body.classList.remove('on-link'));
 });
 
-/* ---- PARALLAX PHOTOS on mouse move ---- */
+/* ================================================================
+   ZOOM-SCROLL INTRO
+   - heroScroll is 500vh tall
+   - .hero is sticky (100vh)
+   - .hero-zoom starts at scale(6) and eases down to scale(1)
+   - Text fades in once scale < 1.25
+   - After the hero-scroll section ends, normal scrolling resumes
+   ================================================================ */
+const heroScroll = document.getElementById('heroScroll');
+const heroZoom   = document.getElementById('heroZoom');
+const heroCenter = document.getElementById('heroCenter');
+
+const SCALE_START = 6;    // initial zoom level
+const SCALE_END   = 1;    // final zoom level
+const TEXT_THRESHOLD = 0.78; // progress at which text starts appearing
+
+function easeOutExpo(t) {
+  return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+}
+
+function onScroll() {
+  if (!heroScroll || !heroZoom) return;
+
+  const scrollTop   = window.scrollY;
+  const sectionTop  = heroScroll.offsetTop;
+  const sectionH    = heroScroll.offsetHeight;
+  const viewportH   = window.innerHeight;
+
+  // progress: 0 = top of section, 1 = bottom of sticky range
+  const raw      = (scrollTop - sectionTop) / (sectionH - viewportH);
+  const progress = Math.max(0, Math.min(1, raw));
+
+  // Ease the progress for a smoother feel
+  const eased = easeOutExpo(progress);
+
+  // Scale interpolation: SCALE_START → SCALE_END
+  const scale = SCALE_START - (SCALE_START - SCALE_END) * eased;
+  heroZoom.style.transform = `scale(${scale})`;
+
+  // Text appears near the end of the zoom
+  const textProgress = Math.max(0, (progress - TEXT_THRESHOLD) / (1 - TEXT_THRESHOLD));
+  heroCenter.style.opacity = textProgress;
+
+  // Blur effect — sharp by end
+  const blur = (1 - eased) * 8;
+  heroZoom.style.filter = blur > 0.1 ? `blur(${blur}px)` : 'none';
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll(); // run once on load
+
+/* ---- MOUSE PARALLAX on photos (only while hero is in view) ---- */
 const photos = document.querySelectorAll('.photo');
-let targetX = 0, targetY = 0, currentX = 0, currentY = 0;
+let targetX = 0, targetY = 0, curParX = 0, curParY = 0;
 
 document.addEventListener('mousemove', e => {
-  targetX = (e.clientX / window.innerWidth  - .5) * 28;
-  targetY = (e.clientY / window.innerHeight - .5) * 20;
+  targetX = (e.clientX / window.innerWidth  - .5) * 30;
+  targetY = (e.clientY / window.innerHeight - .5) * 22;
 }, { passive: true });
 
 (function animPhotos() {
-  currentX += (targetX - currentX) * .06;
-  currentY += (targetY - currentY) * .06;
-
-  photos.forEach(photo => {
-    const vx = parseFloat(photo.dataset.vx || 0);
-    const vy = parseFloat(photo.dataset.vy || 0);
-    photo.style.transform = `translate(${currentX * vx}px, ${currentY * vy}px)`;
+  curParX += (targetX - curParX) * .06;
+  curParY += (targetY - curParY) * .06;
+  photos.forEach(p => {
+    const vx = parseFloat(p.dataset.vx || 0);
+    const vy = parseFloat(p.dataset.vy || 0);
+    p.style.transform = `translate(${curParX * vx}px, ${curParY * vy}px)`;
   });
   requestAnimationFrame(animPhotos);
 })();
 
-/* ---- SCROLL REVEAL ---- */
+/* ---- SCROLL REVEAL for sections below hero ---- */
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -55,56 +105,27 @@ const revealObs = new IntersectionObserver(entries => {
       revealObs.unobserve(e.target);
     }
   });
-}, { threshold: .12, rootMargin: '0px 0px -50px 0px' });
+}, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
 
-// Mark reveal targets
-const revealSelectors = [
-  '.scroll-section__inner > *',
-  '.how-item',
-  '.mini-photo',
-];
-revealSelectors.forEach(sel => {
-  document.querySelectorAll(sel).forEach((el, i) => {
-    el.classList.add('reveal');
-    el.dataset.d = String((i % 3) + 1);
-    revealObs.observe(el);
-  });
+document.querySelectorAll('.scroll-section__inner > *, .how-item, .mini-photo').forEach((el, i) => {
+  el.classList.add('reveal');
+  el.dataset.d = String((i % 3) + 1);
+  revealObs.observe(el);
 });
-
-/* ---- HERO HEADLINE entrance ---- */
-const line1 = document.getElementById('heroLine1');
-const line2 = document.getElementById('heroLine2');
-if (line1 && line2) {
-  [line1, line2].forEach((el, i) => {
-    el.style.opacity   = '0';
-    el.style.transform = 'translateY(22px)';
-    el.style.transition = `opacity .9s cubic-bezier(.16,1,.3,1) ${.2 + i * .18}s,
-                            transform .9s cubic-bezier(.16,1,.3,1) ${.2 + i * .18}s`;
-  });
-  window.addEventListener('load', () => {
-    [line1, line2].forEach(el => {
-      el.style.opacity   = '1';
-      el.style.transform = 'translateY(0)';
-    });
-  });
-}
 
 /* ---- SMOOTH ANCHOR SCROLL ---- */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
 
-/* ---- HIDE SCROLL INDICATOR AFTER SCROLL ---- */
-const arrow = document.querySelector('.bottom-nav__arrow');
+/* ---- HIDE SCROLL INDICATOR after scrolling starts ---- */
+const scrollArrow = document.querySelector('.bottom-nav__arrow');
 const scrollLabel = document.querySelector('.bottom-nav__scroll');
 window.addEventListener('scroll', () => {
-  const scrolled = window.scrollY > 80;
-  if (arrow)      arrow.style.opacity      = scrolled ? '0' : '1';
-  if (scrollLabel) scrollLabel.style.opacity = scrolled ? '0' : '1';
+  const gone = window.scrollY > 60;
+  if (scrollArrow) scrollArrow.style.opacity = gone ? '0' : '1';
+  if (scrollLabel) scrollLabel.style.opacity = gone ? '0' : '1';
 }, { passive: true });
