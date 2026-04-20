@@ -10,8 +10,8 @@
   --white:    #ffffff;
   --radius:   16px;
   --radius-lg:32px;
-  --ff-serif: 'Playfair Display', Georgia, serif;
-  --ff-sans:  'Inter', system-ui, sans-serif;
+  --ff-serif: Georgia, 'Times New Roman', serif;
+  --ff-sans:  system-ui, -apple-system, 'Segoe UI', sans-serif;
   --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 

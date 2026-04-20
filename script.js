@@ -215,13 +215,7 @@ const ctaSection = document.querySelector('.cta-section');
 if (ctaSection) statsObserver.observe(ctaSection);
 
 /* ===== PAGE LOAD ANIMATION ===== */
-window.addEventListener('load', () => {
-  document.body.style.opacity = '0';
-  document.body.style.transition = 'opacity 0.6s ease';
-  requestAnimationFrame(() => {
-    document.body.style.opacity = '1';
-  });
-
+window.addEventListener('DOMContentLoaded', () => {
   // Stagger hero content
   const heroItems = document.querySelectorAll('.hero__tag, .hero__headline, .hero__sub, .hero__actions');
   heroItems.forEach((el, i) => {
@@ -231,6 +225,6 @@ window.addEventListener('load', () => {
     setTimeout(() => {
       el.style.opacity   = '1';
       el.style.transform = 'translateY(0)';
-    }, 200 + i * 120);
+    }, 100 + i * 120);
   });
 });
